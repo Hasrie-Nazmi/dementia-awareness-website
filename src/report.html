@@ -1,0 +1,704 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../stylesheet/reportStyle.css" />
+    <script
+      src="https://kit.fontawesome.com/f38ed63dbc.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Report</title>
+  </head>
+  <body>
+    <div class="dim-overlay-container">
+      <div class="bg-image-content">
+        <ul
+          class="nav nav-pills mb-3 text-dark"
+          id="pills-tab"
+          role="tablist"
+          style="background-color: #6554af"
+        >
+          <li class="nav-item" role="presentation">
+            <a
+              style="margin: 5%"
+              class="nav-link"
+              aria-current="page"
+              href="#"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvas"
+              role="button"
+              aria-controls="offcanvasExample"
+              ><i class="fa-solid fa-bars"></i
+            ></a>
+          </li>
+        </ul>
+        <div
+          class="offcanvas offcanvas-start text-white"
+          tabindex="-1"
+          id="offcanvas"
+          aria-labelledby="offcanvasLabel"
+        >
+          <div class="offcanvas-header" style="background-color: black">
+            <h5
+              class="offcanvas-title"
+              id="offcanvasLabel"
+              style="color: white"
+            >
+              Dementia Awareness
+            </h5>
+            <button
+              style="background-color: white"
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="offcanvas-body" style="background-color: #6554af">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="welcome.html"
+                  ><i class="fa-solid fa-house"></i> Welcome</a
+                >
+              </li>
+
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="readingCorner.html"
+                  ><i class="fa-solid fa-book"></i> Reading Corner</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="report.html"
+                  ><i class="fa-solid fa-chart-simple"></i> Report &
+                  Analytics</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  aria-current="page"
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modalNotif"
+                  role="button"
+                  aria-controls="offcanvasExample"
+                  id="notification_navlink"
+                  ><i class="fa-solid fa-bell"></i> Notification
+                  <span
+                    class="badge text-bg-secondary"
+                    id="notification_counter"
+                    >0</span
+                  ></a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  aria-current="page"
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modalInvite"
+                  ><i class="fa-solid fa-envelope"></i> Invite</a
+                >
+              </li>
+              <hr style="margin-top: 80%" />
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  role="button"
+                  id="reset_data_navlink"
+                  confirm="Are you sure?"
+                  ><i class="fa-solid fa-gear"></i> Reset Data</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="about_us.html"
+                  ><i class="fa-solid fa-circle-info"></i> About Us</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="login.html"
+                  ><i class="fa-solid fa-right-to-bracket"></i> Log Out</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <h1 style="text-align: center">Report & Analytics</h1>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card h-100">
+              <img
+                src="../assets/img/card_header_1.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h3 class="card-title">Dementia Symptoms</h3>
+                <hr />
+                <h5 class="card-text">Reading Progress</h5>
+                <div
+                  class="progress"
+                  role="progressbar"
+                  aria-label="Example with label"
+                  aria-valuenow="25"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                >
+                  <div
+                    class="progress-bar"
+                    style="width: 50%"
+                    id="read_progress1"
+                  >
+                    50%
+                  </div>
+                </div>
+                <hr />
+                <h5 class="card-text">Quiz</h5>
+                <br />
+                <h5 class="card-text" id="quiz1_submitted">Submitted: No</h5>
+                <h5 class="card-text" id="quiz1_result">Result: 0/6</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <img
+                src="../assets/img/card_header_2.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h3 class="card-title">Communication Tips</h3>
+                <hr />
+                <h5 class="card-text">Reading Progress</h5>
+                <div
+                  class="progress"
+                  role="progressbar"
+                  aria-label="Example with label"
+                  aria-valuenow="25"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                >
+                  <div
+                    class="progress-bar"
+                    style="width: 50%"
+                    id="read_progress2"
+                  >
+                    50%
+                  </div>
+                </div>
+                <hr />
+                <h5 class="card-text">Quiz</h5>
+                <br />
+                <h5 class="card-text" id="quiz2_submitted">Submitted: No:</h5>
+                <h5 class="card-text" id="quiz2_result">Result: 0/6</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <img
+                src="../assets/img/card_header_3.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h3 class="card-title">
+                  Dealing with Person Affected by Dementia
+                </h3>
+                <hr />
+                <h5 class="card-text">Reading Progress</h5>
+                <div
+                  class="progress"
+                  role="progressbar"
+                  aria-label="Example with label"
+                  aria-valuenow="25"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                >
+                  <div
+                    class="progress-bar"
+                    style="width: 50%"
+                    id="read_progress3"
+                  >
+                    50%
+                  </div>
+                </div>
+                <hr />
+                <h5 class="card-text">Quiz</h5>
+                <br />
+                <h5 class="card-text" id="quiz3_submitted">Submitted: No</h5>
+                <h5 class="card-text" id="quiz3_result">Result: 0/6</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="gray-container">
+          <div class="text-center">
+            <h3 id="tasks_completed">
+              Tasks incompleted, you are ineligible to generate certificate of
+              completion
+            </h3>
+            <button
+              type="button"
+              class="btn btn-primary btn-lg text-center"
+              id="btn_generate_cert"
+              onclick=""
+              disabled
+            >
+              Generate Certificate of Completion
+            </button>
+          </div>
+          <img
+            class="certificate_img"
+            src="../assets/img/certificate.jpeg"
+            alt="Certificate of Completion"
+            id="certificate_img"
+          />
+          <a
+            class="download_link"
+            href="../assets/img/certificate.jpeg"
+            id="download_link"
+            download
+            ><i class="fa-solid fa-download"></i> Download Certificate
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="modalNotif"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1
+              class="modal-title fs-5"
+              id="exampleModalLabel"
+              style="padding: 0"
+            >
+              Notification
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            Reminder to complete reading task on: <br />
+            <div class="list_container">
+              <ul id="task_reminders"></ul>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="modalInvite"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1
+              class="modal-title fs-5"
+              id="exampleModalLabel"
+              style="padding: 0"
+            >
+              Invite
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            Copy this link: https://www.team8-dementia-awareness.com/
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/bootstrap.js"></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        push,
+        child,
+        update,
+        get,
+        orderByChild,
+        query,
+        equalTo,
+      } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-database.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyCT08L4AtkOZChKXH4cm73hb9pyWKNFUh4",
+        authDomain: "dementiaawareness-82189.firebaseapp.com",
+        databaseURL:
+          "https://dementiaawareness-82189-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "dementiaawareness-82189",
+        storageBucket: "dementiaawareness-82189.appspot.com",
+        messagingSenderId: "319568337676",
+        appId: "1:319568337676:web:6582d1ca41095f48ca4729",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const database = getDatabase(app);
+
+      let read_progress1 = document.getElementById("read_progress1");
+      let read_progress2 = document.getElementById("read_progress2");
+      let read_progress3 = document.getElementById("read_progress3");
+
+      let quiz1_submitted = document.getElementById("quiz1_submitted");
+      let quiz2_submitted = document.getElementById("quiz2_submitted");
+      let quiz3_submitted = document.getElementById("quiz3_submitted");
+
+      let quiz1_result = document.getElementById("quiz1_result");
+      let quiz2_result = document.getElementById("quiz2_result");
+      let quiz3_result = document.getElementById("quiz3_result");
+
+      // const dataIdToUpdate = "-Nb5uaogHKkxW85qZVPx";
+      const emailToQuery = localStorage.getItem("email");
+      document.addEventListener(
+        "DOMContentLoaded",
+        getUserByEmail(emailToQuery)
+      );
+      document.addEventListener("DOMContentLoaded", check_eligibility());
+      async function get_data(dataId) {
+        const value = localStorage.getItem("email");
+        // alert(value);
+        const dataRef = ref(database, "users/" + dataId);
+
+        try {
+          const snapshot = await get(dataRef);
+
+          if (snapshot.exists()) {
+            const data = snapshot.val();
+
+            read_progress1.innerHTML = data.read_progress1 + "%";
+            read_progress1.style.width = data.read_progress1 + "%";
+
+            read_progress2.innerHTML = data.read_progress2 + "%";
+            read_progress2.style.width = data.read_progress2 + "%";
+
+            read_progress3.innerHTML = data.read_progress3 + "%";
+            read_progress3.style.width = data.read_progress3 + "%";
+
+            quiz1_submitted.textContent = "Submitted: " + data.quiz1_submitted;
+            quiz2_submitted.textContent = "Submitted: " + data.quiz2_submitted;
+            quiz3_submitted.textContent = "Submitted: " + data.quiz3_submitted;
+
+            quiz1_result.textContent = "Result: " + data.quiz1_result + "/6";
+            quiz2_result.textContent = "Result: " + data.quiz2_result + "/6";
+            quiz3_result.textContent = "Result: " + data.quiz3_result + "/6";
+            return data;
+          } else {
+            console.log("No data available for this ID");
+          }
+        } catch (error) {
+          console.error("Error getting data: ", error);
+        }
+      }
+
+      async function updateUserByEmail(email, newData) {
+        const usersRef = ref(database, "users");
+
+        try {
+          const usersQuery = query(
+            usersRef,
+            orderByChild("email"),
+            equalTo(email)
+          );
+          const snapshot = await get(usersQuery);
+
+          if (snapshot.exists()) {
+            const userKey = Object.keys(snapshot.val())[0]; // Get the key of the first matching user
+            const userRef = ref(database, `users/${userKey}`);
+
+            // Update the user's data
+            await update(userRef, newData);
+            console.log("User data updated successfully");
+          } else {
+            console.log("No user found with this email");
+          }
+        } catch (error) {
+          console.error("Error updating user data: ", error);
+        }
+      }
+
+      async function getUserByEmail(email) {
+        const usersRef = ref(database, "users");
+
+        try {
+          const usersQuery = query(
+            usersRef,
+            orderByChild("email"),
+            equalTo(email)
+          );
+          const snapshot = await get(usersQuery);
+
+          if (snapshot.exists()) {
+            const userKey = Object.keys(snapshot.val())[0]; // Get the key of the first matching user
+            const userData = snapshot.val()[userKey];
+            read_progress1.innerHTML = userData.read_progress1 + "%";
+            read_progress1.style.width = userData.read_progress1 + "%";
+
+            read_progress2.innerHTML = userData.read_progress2 + "%";
+            read_progress2.style.width = userData.read_progress2 + "%";
+
+            read_progress3.innerHTML = userData.read_progress3 + "%";
+            read_progress3.style.width = userData.read_progress3 + "%";
+
+            quiz1_submitted.textContent =
+              "Submitted: " + userData.quiz1_submitted;
+            quiz2_submitted.textContent =
+              "Submitted: " + userData.quiz2_submitted;
+            quiz3_submitted.textContent =
+              "Submitted: " + userData.quiz3_submitted;
+
+            quiz1_result.textContent =
+              "Result: " + userData.quiz1_result + "/6";
+            quiz2_result.textContent =
+              "Result: " + userData.quiz2_result + "/6";
+            quiz3_result.textContent =
+              "Result: " + userData.quiz3_result + "/6";
+            // console.log(userData);
+            return userData;
+          } else {
+            console.log("No user found with this email");
+            return null;
+          }
+        } catch (error) {
+          console.error("Error getting user data: ", error);
+          return null;
+        }
+      }
+
+      window.addEventListener("DOMContentLoaded", offcanvas_notification);
+      const email = localStorage.getItem("email");
+
+      async function offcanvas_notification() {
+        const tasks = [
+          "Dementia Symptoms",
+          "Communication Tips",
+          "Dealing with Person Affected by Dementia",
+        ];
+
+        const userData = await getUserByEmail(email);
+
+        const current_date = new Date();
+
+        current_date.setHours(0);
+        current_date.setMinutes(0);
+        current_date.setSeconds(0);
+        current_date.setMilliseconds(0);
+
+        const last_login_date = new Date(userData.last_login);
+
+        last_login_date.setHours(0);
+        last_login_date.setMinutes(0);
+        last_login_date.setSeconds(0);
+        last_login_date.setMilliseconds(0);
+
+        var Difference_In_Time = Math.abs(current_date - last_login_date);
+
+        var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+
+        document.getElementById("notification_counter").innerHTML =
+          Difference_In_Days;
+
+        const db_read_progress1 = userData.read_progress1;
+        const db_read_progress2 = userData.read_progress2;
+        const db_read_progress3 = userData.read_progress3;
+
+        const db_quiz1_submitted = userData.quiz1_submitted;
+        const db_quiz2_submitted = userData.quiz2_submitted;
+        const db_quiz3_submitted = userData.quiz3_submitted;
+
+        const read_progress_array = [
+          db_read_progress1,
+          db_read_progress2,
+          db_read_progress3,
+        ];
+        const quiz_submitted_array = [
+          db_quiz1_submitted,
+          db_quiz2_submitted,
+          db_quiz3_submitted,
+        ];
+
+        const new_tasks = [];
+
+        for (let i = 0; i < tasks.length; i++) {
+          // console.log(read_progress_array[i], quiz_submitted_array[i]);
+          // console.log(i);
+          if (
+            read_progress_array[i] < 100 ||
+            quiz_submitted_array[i] != "Yes"
+          ) {
+            new_tasks.push(tasks[i]);
+          }
+        }
+
+        let task_reminders = document.getElementById("task_reminders");
+        if (new_tasks.length < 1) {
+          task_reminders.innerHTML = "Tasks Completed";
+        } else {
+          for (let i = 0; i < new_tasks.length; i++) {
+            let li = document.createElement("li");
+            li.innerText = new_tasks[i];
+            task_reminders.appendChild(li);
+          }
+        }
+      }
+
+      async function check_eligibility() {
+        const emailToQuery = localStorage.getItem("email");
+        const userData = await getUserByEmail(emailToQuery);
+
+        // const dataIdToUpdate = "-Nb5uaogHKkxW85qZVPx";
+        // const data = await get_data(dataIdToUpdate);
+        let cert_elible = false;
+
+        const read_progress_array = [
+          userData.read_progress1,
+          userData.read_progress2,
+          userData.read_progress3,
+        ];
+
+        const quiz_submitted_array = [
+          userData.quiz1_submitted,
+          userData.quiz2_submitted,
+          userData.quiz3_submitted,
+        ];
+
+        const quiz_result_array = [
+          userData.quiz1_result,
+          userData.quiz2_result,
+          userData.quiz3_result,
+        ];
+
+        const check_complete = [];
+
+        for (let i = 0; i < read_progress_array.length; i++) {
+          // console.log(
+          //   read_progress_array[i],
+          //   quiz_submitted_array[i],
+          //   quiz_result_array[i]
+          // );
+          if (
+            read_progress_array[i] == 100 &&
+            quiz_submitted_array[i] == "Yes" &&
+            quiz_result_array[i] == 6
+          ) {
+            check_complete.push(
+              read_progress_array[i],
+              quiz_submitted_array[i],
+              quiz_result_array[i]
+            );
+          }
+        }
+        if (check_complete.length == 9) {
+          cert_elible = true;
+        }
+
+        if (cert_elible) {
+          const tasks_completed = document.getElementById("tasks_completed");
+          tasks_completed.innerHTML =
+            "Tasks completed, you are eligible to generate certificate of completion";
+          const btn_generate_cert =
+            document.getElementById("btn_generate_cert");
+          btn_generate_cert.disabled = false;
+        }
+      }
+
+      function reset_user_data() {
+        const confirmed = confirm(
+          "Are you sure you want to delete your progress?"
+        );
+
+        const email = localStorage.getItem("email");
+        const reset_data = {
+          quiz1_result: 0,
+          quiz2_result: 0,
+          quiz3_result: 0,
+          quiz1_submitted: "No",
+          quiz2_submitted: "No",
+          quiz3_submitted: "No",
+          read_progress1: 0,
+          read_progress2: 0,
+          read_progress3: 0,
+        };
+
+        if (confirmed) {
+          updateUserByEmail(email, reset_data);
+        }
+      }
+
+      function generate_certificate() {
+        let img = document.getElementById("certificate_img");
+        const download_link = document.getElementById("download_link");
+
+        img.style.display = "block";
+        download_link.style.display = "inline";
+      }
+
+      const reset_data_navlink = document.getElementById("reset_data_navlink");
+      reset_data_navlink.addEventListener("click", reset_user_data);
+
+      const btn_generate_cert = document.getElementById("btn_generate_cert");
+      btn_generate_cert.addEventListener("click", generate_certificate);
+    </script>
+  </body>
+</html>

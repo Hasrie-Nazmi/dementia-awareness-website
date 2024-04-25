@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dementia Awareness</title>
+    <link rel="stylesheet" href="../stylesheet/loginStyle.css" />
+    <link href="extern.html" rel="import" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="lbody">
+    <div class="container">
+      <input type="checkbox" id="flip" />
+      <div class="cover">
+        <div class="front">
+          <img src="../assets/img/purple.jpg" alt="" />
+          <div class="text">
+            <span class="text-1"
+              >Welcome Back To <br />
+              Dementia Awareness</span
+            >
+            <span class="text-2"></span>
+          </div>
+        </div>
+        <div class="back">
+          <img src="../assets/img/purple.jpg" alt="" />
+          <div class="text">
+            <span class="text-1"
+              >Sign Up
+              <br />
+              Demential Awareness</span
+            >
+            <span class="text-2"
+              ><br />Worry never robs tomorrow of its sorrow, <br />it only robs
+              today of its joy</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="forms">
+        <div class="form-content">
+          <div class="login-form">
+            <div class="title">Login</div>
+            <form action="#">
+              <div class="input-boxes">
+                <div class="input-box">
+                  <i class="fas fa-envelope"></i>
+                  <input
+                    type="text"
+                    id="siemail"
+                    placeholder="Enter your email"
+                    required
+                  />
+                </div>
+                <div class="input-box">
+                  <i class="fas fa-lock"></i>
+                  <input
+                    type="password"
+                    id="sipassword"
+                    placeholder="Enter your password"
+                    required
+                  />
+                </div>
+                <div class="text"><a href="#">Forgot password?</a></div>
+                <div class="button input-box">
+                  <input type="submit" value="Submit" id="siButton" />
+                </div>
+                <!-- <script>
+                  // function auth() {
+                  //   var email = document.getElementById("email").value;
+                  //   var password = document.getElementById("password").value;
+                  //   if (email == "admin@gmail.com" && password == "admin123") {
+                  //     window.location.assign("readingCorner.html");
+                  //     alert("Login Successfully!");
+                  //   } else {
+                  //     alert("Invalid Information");
+                  //     return;
+                  //   }
+                  // }
+                </script> -->
+
+                <div class="text sign-up-text">
+                  Don't have an account? <label for="flip">Signup now</label>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div id="authForm" class="signup-form">
+            <div class="title">Signup</div>
+            <form action="#">
+              <div class="input-boxes">
+                <div class="input-box">
+                  <i class="fas fa-user"></i>
+                  <input
+                    type="text"
+                    id="sufullName"
+                    placeholder="Enter your name"
+                    required
+                  />
+                </div>
+                <div class="input-box">
+                  <i class="fas fa-envelope"></i>
+                  <input
+                    type="text"
+                    id="suemail"
+                    placeholder="Enter your email"
+                    required
+                  />
+                </div>
+                <div class="input-box">
+                  <i class="fas fa-lock"></i>
+                  <input
+                    type="password"
+                    id="supassword"
+                    placeholder="Enter your password"
+                    required
+                  />
+                </div>
+                <div class="button input-box">
+                  <input type="submit" value="Submit" id="suButton" />
+                </div>
+                <div class="text sign-up-text">
+                  Already have an account? <label for="flip">Login now</label>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        push,
+      } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        onAuthStateChanged,
+        signOut,
+      } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyCT08L4AtkOZChKXH4cm73hb9pyWKNFUh4",
+        authDomain: "dementiaawareness-82189.firebaseapp.com",
+        databaseURL:
+          "https://dementiaawareness-82189-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "dementiaawareness-82189",
+        storageBucket: "dementiaawareness-82189.appspot.com",
+        messagingSenderId: "319568337676",
+        appId: "1:319568337676:web:6582d1ca41095f48ca4729",
+      };
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const database = getDatabase(app);
+      const auth = getAuth(app);
+
+      const sufullName = document.querySelector("#sufullName");
+      const userEmail = document.querySelector("#suemail");
+      const userPassword = document.querySelector("#supassword");
+      const siuserEmail = document.querySelector("#siemail");
+      const siuserPassword = document.querySelector("#sipassword");
+      const authForm = document.querySelector("#authForm");
+      const signInButton = document.querySelector("#siButton");
+      const signUpButton = document.querySelector("#suButton");
+
+      const userSignUp = async () => {
+        const signUpFullName = sufullName.value;
+        const signUpEmail = userEmail.value;
+        const signUpPassword = userPassword.value;
+        const usersRef = ref(database, "users");
+
+        createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            console.log(user);
+            const current_date = new Date();
+
+            current_date.setHours(0);
+            current_date.setMinutes(0);
+            current_date.setSeconds(0);
+            current_date.setMilliseconds(0);
+
+            push(usersRef, {
+              email: signUpEmail,
+              last_login: current_date.toISOString(),
+              quiz1_result: 0,
+              quiz2_result: 0,
+              quiz3_result: 0,
+              quiz1_submitted: "No",
+              quiz2_submitted: "No",
+              quiz3_submitted: "No",
+              read_progress1: 0,
+              read_progress2: 0,
+              read_progress3: 0,
+            });
+            alert("Account Sucessfully Created");
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode + errorMessage);
+          });
+      };
+
+      const userSignIn = async () => {
+        const signInEmail = siuserEmail.value;
+        const signInPassword = siuserPassword.value;
+        signInWithEmailAndPassword(auth, signInEmail, signInPassword)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            alert("Signed In Successfully!");
+
+            localStorage.setItem("email", signInEmail);
+            window.location.assign("welcome.html");
+          })
+          .catch((error) => {
+            alert("Incorrect Email or Password");
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode + errorMessage);
+          });
+      };
+
+      signUpButton.addEventListener("click", userSignUp);
+      signInButton.addEventListener("click", userSignIn);
+    </script>
+  </body>
+</html>
